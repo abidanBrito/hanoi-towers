@@ -42,7 +42,6 @@ namespace Torres_de_Hanoi
                     mover_disco(ini, fin);
                     if (isSolved(fin, n)) { break; }
                     mover_disco(ini, aux);
-                    if (isSolved(fin, n)) { break; }
                     mover_disco(aux, fin);
                     if (isSolved(fin, n)) { break; }
                 }
@@ -52,7 +51,6 @@ namespace Torres_de_Hanoi
                 while (!isSolved(fin, n))
                 {
                     mover_disco(ini, aux);
-                    if (isSolved(fin, n)) { break; }
                     mover_disco(ini, fin);
                     if (isSolved(fin, n)) { break; }
                     mover_disco(aux, fin);

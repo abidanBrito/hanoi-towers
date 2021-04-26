@@ -25,6 +25,12 @@ namespace Torres_de_Hanoi
 
             // Menu pick
             int pickedOption = ShowMenu();
+            if (pickedOption != 1 && pickedOption != 2 && pickedOption != 3)
+            {
+                Console.WriteLine("Opción no válida");
+                Console.ReadKey();
+                return;
+            }
             if (pickedOption == 3)
             {
                 running = false;
@@ -32,15 +38,14 @@ namespace Torres_de_Hanoi
             }
 
             // Specify number of discs
-            Console.WriteLine("Introduzca el número de discos, por favor: ");
+            Console.WriteLine("\nIntroduzca el número de discos, por favor: ");
             string keyStroke = Console.ReadLine();
             uint numDiscos;
             while (!UInt32.TryParse(keyStroke, out numDiscos) && keyStroke != "0")
             {
-                Console.WriteLine("\nIntroduzca un número válido");
+                Console.WriteLine("Introduzca un número válido");
                 keyStroke = Console.ReadLine();
             }
-            Console.WriteLine("Has escogido " + numDiscos.ToString() + " discos");
 
             // Initialize stacks (rods)
             Pila ini = new Pila(numDiscos);
@@ -62,7 +67,8 @@ namespace Torres_de_Hanoi
                     break;
             }
 
-            Console.WriteLine("Se ha resuelto en " + numMovements.ToString() + " movimientos");
+            Console.WriteLine("\n- Solución óptima: " + (Math.Pow(2, numDiscos) - 1) + " movimientos.");
+            Console.WriteLine("- Implementación: " + numMovements.ToString() + " movimientos.");
             Console.ReadKey();  // Restart game upon hitting any key
         }
 
